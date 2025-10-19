@@ -71,15 +71,20 @@
   <!-- Arkaplan videosu -->
   <div class="bg-video">
     <video id="bgVideo" loop playsinline>
-      <source src="lyrics-video.mp4" type="video/mp4">
-      Tarayıcınız video etiketini desteklemiyor.
+      <source src="video.mp4" type="video/mp4">
     </video>
   </div>
+
+  <!-- Arkaplan müzik -->
+  <audio id="bgMusic" loop>
+    <source src="arkaplan.mp3" type="audio/mpeg">
+    Tarayıcınız audio etiketini desteklemiyor.
+  </audio>
 
   <!-- İkon bar ve buton kapsayıcı -->
   <div class="wrap">
     <!-- İkon bar -->
-    <div class="social-bar">
+      <div class="social-bar">
       <a href="https://www.instagram.com/samwt.dll" target="_blank">
         <img src="icons/instagram.png" alt="Instagram">
       </a>
@@ -97,25 +102,23 @@
       </a>
     </div>
 
-    <!-- Video Play/Pause butonu -->
-    <button id="playBtn">⏯ Başlat / Durdur</button>
+    <!-- Ses başlat/durdur butonu -->
+    <button id="playBtn">▶ Müziği Başlat</button>
   </div>
 
   <script>
     const video = document.getElementById("bgVideo");
+    const music = document.getElementById("bgMusic");
     const btn = document.getElementById("playBtn");
 
-    // Başlangıçta videoyu otomatik başlat (tarayıcı izin verirse)
-    video.autoplay = true;
-    video.loop = true;
-
     btn.addEventListener("click", () => {
-      if (video.paused) {
-        video.play();
-        btn.textContent = "⏸ Durdur";
+      if (music.paused) {
+        video.play();   // videoyu başlat
+        music.play();   // müziği başlat
+        btn.textContent = '⏸ Müziği Durdur';
       } else {
-        video.pause();
-        btn.textContent = "▶ Başlat";
+        music.pause();  // müziği durdur
+        btn.textContent = '▶ Müziği Başlat';
       }
     });
   </script>
